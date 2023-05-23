@@ -1,0 +1,128 @@
+@import '../../../sass/variables';
+
+.upload-page {
+  margin: 0;
+  font-family: $font-family_body;
+  font-size: medium;
+
+  h1 {
+    padding: 5px;
+    border-bottom: 1px solid $color-yellow;
+    animation: shineBorder 5s infinite;
+  }
+
+  @keyframes shineBorder {
+    0% {
+      border-bottom-color: $color-yellow;
+
+    }
+
+    50% {
+      border-bottom-color: $color-red;
+
+    }
+
+    100% {
+      border-bottom-color: $color-yellow;
+
+    }
+  }
+
+  &__form {
+    margin: 10px;
+
+    &__radio {
+      span {
+        color: white;
+        font-family: $font-family_body;
+        font-size: 1.5rem;
+      }
+
+      .ant-radio-checked .ant-radio-inner {
+        border-color: $color-lila;
+        background: $color-lila;
+      }
+
+      &--form {
+        margin-left: 1.5rem;
+      }
+    }
+
+    &__select {
+      font-family: $font-family_body;
+      font-size: 1.5rem;
+
+      .space{
+       display: flex;
+      flex-direction: row; 
+      }
+      
+    }
+
+    &__input {
+      font-family: $font-family_body;
+      font-size: 1.5rem;
+      margin: 1rem;
+      margin-left: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+
+      label {
+        margin-right: 0.5rem;
+      }
+
+      input {
+        width: 200px;
+        height: 20px;
+        padding: 5px;
+        color: $color-lila;
+        font-family: $font-family_body;
+        font-size: 1.1rem;
+
+      }
+    }
+
+    button {
+      background: none;
+      border-color: $color-neon;
+      padding: 10px;
+      width: 150px;
+      font-size: 1.5rem;
+      margin-top: 3rem;
+      margin-left: 40%;
+      &:hover{
+        color: $color-neon;
+        border-color: $color-lila;
+      }
+    }
+  }
+}
+
+:where(.css-dev-only-do-not-override-w8mnev).ant-select-multiple .ant-select-selection-overflow {
+  background-color: rgb(78, 77, 77);
+  
+}
+
+.ant-select-show-search:where(.css-dev-only-do-not-override-w8mnev).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: rgb(91, 91, 91);
+  border-color: $color-lila;
+  svg{
+    color: $color-lila;
+  }
+}
+
+
+:where(.css-dev-only-do-not-override-w8mnev).ant-select-multiple .ant-select-selection-item {
+  background-color: rgb(91, 91, 91);
+  color: $color-lila;
+  svg{
+    color: $color-lila;
+  }
+}
+
+:where(.css-dev-only-do-not-override-w8mnev).ant-select .ant-select-arrow {
+  color: $color-lila;
+}
+
