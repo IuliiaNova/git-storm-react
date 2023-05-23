@@ -1,0 +1,214 @@
+@import '../../../sass/variables';
+
+.navbar-page {
+  position: relative;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+  margin-left: 212px;
+  padding-bottom: 40px;
+  width: 80%;
+  margin-bottom: 0;
+
+  &__nav {
+    &__list {
+      display: flex;
+      flex-direction: row;
+      gap: 5rem;
+      align-items: center;
+
+      .active {
+        border-bottom: 2px solid $color-lila;
+        animation: 10s shineBorder ease infinite
+      }
+      
+      @keyframes shineBorder {
+        0% {
+          border-bottom-color: $color-neon;
+    
+        }
+    
+        50% {
+          border-bottom-color: $color-lila;
+    
+        }
+    
+        100% {
+          border-bottom-color: $color-neon;
+    
+        }
+      }
+      
+     
+
+      &__item {
+        list-style: none;
+        font-family: $font-family_title;
+        font-size: 1.8rem;
+        padding: 5px;
+        margin: 5px;
+        background-image: linear-gradient(to right, $color-lila, $color-neon);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        transition: border-bottom-color 0.3s ease;
+
+
+        &:hover {
+          border-bottom: 2px solid $color-lila;
+        }
+
+
+      }
+    }
+
+    &__search {
+
+      &--input {
+        width: 100%;
+        height: 1.5rem;
+        padding: 0.3rem;
+        margin: 10px;
+        height: 100%;
+        background-color: $color-neon;
+
+        :where(.css-dev-only-do-not-override-w8mnev) {
+          border-radius: 3px;
+        }
+
+        button {
+          background-color: $color-lila;
+          font-weight: bold;
+
+          &:hover {
+            background-color: rgb(193, 73, 199);
+          }
+        }
+
+        input {
+          &:focus {
+            outline: none;
+          }
+        }
+
+        &::placeholder {
+          font-size: 16px;
+          font-weight: 300;
+          line-height: 20px;
+          color: black;
+        }
+      }
+    }
+
+    &__filter {
+      margin: 15px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      align-content: center;
+      gap: 20px;
+      width: 80%;
+
+      img {
+        width: 70px;
+
+        &:hover {
+          width: 200px;
+        }
+      }
+
+      p {
+        font-size: large;
+        font-family: $font-family_body;
+      }
+
+      &--btn {
+        font-size: large;
+        font-family: $font-family_body;
+        padding: 5px;
+        background: none;
+        border: none;
+        width: 120px;
+
+        &:hover {
+          border-bottom: 1px solid $color-neon;
+          border-top: 1px solid $color-yellow;
+          color: $color-green;
+        }
+
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+:where(.css-dev-only-do-not-override-w8mnev).ant-input-search>.ant-input-group>.ant-input-group-addon:last-child .ant-input-search-button {
+  border-start-end-radius: 3px;
+  border-end-end-radius: 3px;
+}
+
+:where(.css-dev-only-do-not-override-w8mnev).ant-input-search>.ant-input-group>.ant-input-group-addon:last-child .ant-input-search-button:hover {
+  background-color: #e873d7;
+  color: $color-neon;
+}
+
+.login {
+  border: 2px solid $color-lila;
+  border-radius: 20px;
+  padding: 5px 15px 5px 15px;
+  font-weight: bold;
+
+  // -webkit-animation: flip-scale-2-hor-top 0.5s linear both;
+  //         animation: flip-scale-2-hor-top 0.5s linear both;
+  &:hover {
+    border: 2px solid white;
+  }
+
+
+
+  // @-webkit-keyframes flip-scale-2-hor-top {
+  //   0% {
+  //     -webkit-transform: translateY(0) rotateX(0) scale(1);
+  //             transform: translateY(0) rotateX(0) scale(1);
+  //     -webkit-transform-origin: 50% 0%;
+  //             transform-origin: 50% 0%;
+  //   }
+  //   50% {
+  //     -webkit-transform: translateY(-50%) rotateX(-90deg) scale(2);
+  //             transform: translateY(-50%) rotateX(-90deg) scale(2);
+  //     -webkit-transform-origin: 50% 50%;
+  //             transform-origin: 50% 50%;
+  //   }
+  //   100% {
+  //     -webkit-transform: translateY(-100%) rotateX(-180deg) scale(1);
+  //             transform: translateY(-100%) rotateX(-180deg) scale(1);
+  //     -webkit-transform-origin: 50% 100%;
+  //             transform-origin: 50% 100%;
+  //   }
+  // }
+  // @keyframes flip-scale-2-hor-top {
+  //   0% {
+  //     -webkit-transform: translateY(0) rotateX(0) scale(1);
+  //             transform: translateY(0) rotateX(0) scale(1);
+  //     -webkit-transform-origin: 50% 0%;
+  //             transform-origin: 50% 0%;
+  //   }
+  //   50% {
+  //     -webkit-transform: translateY(-50%) rotateX(-90deg) scale(2);
+  //             transform: translateY(-50%) rotateX(-90deg) scale(2);
+  //     -webkit-transform-origin: 50% 50%;
+  //             transform-origin: 50% 50%;
+  //   }
+  //   100% {
+  //     -webkit-transform: translateY(-100%) rotateX(-180deg) scale(1);
+  //             transform: translateY(-100%) rotateX(-180deg) scale(1);
+  //     -webkit-transform-origin: 50% 100%;
+  //             transform-origin: 50% 100%;
+  //   }
+  // }
+
+}
