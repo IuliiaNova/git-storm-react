@@ -1,0 +1,66 @@
+@import '../../../sass/variables';
+
+.itemPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  &__content {
+    font-family: $font-family_body;
+
+    img {
+      width: 500px;
+    }
+
+    &__btn {
+      font-family: $font-family_body;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+      gap: 2rem;
+
+      p{
+        color: $color-lila;
+        font-size: 1.2rem;
+      }
+
+      button{
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+      }
+
+      &--like{
+        color: $color-red;
+      }
+
+      &--share{
+        color: $color-yellow;
+      }
+
+      &--trash{
+        color: $color-neon;
+      }
+
+    }
+  }
+
+  &__rec {
+
+    &--span {
+      margin: 1rem;
+      font-family: $font-family_body;
+      font-size: 2rem;
+      color: $color-green;
+    }
+
+  }
+
+}
+
+.custom-message{
+  background-color: aqua;
+}

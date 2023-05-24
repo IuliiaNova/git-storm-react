@@ -30,6 +30,7 @@
 
   &__form {
     margin: 10px;
+    margin-left: 15%;
 
     &__radio {
       span {
@@ -56,12 +57,15 @@
        display: flex;
       flex-direction: row; 
       }
-      
+      label{
+        margin-right: 15px;
+      }
+
     }
 
     &__input {
       font-family: $font-family_body;
-      font-size: 1.5rem;
+      font-size: 1.5rem; 
       margin: 1rem;
       margin-left: 0;
       display: flex;
@@ -74,13 +78,18 @@
       }
 
       input {
-        width: 200px;
+        width: 300px;
         height: 20px;
         padding: 5px;
         color: $color-lila;
         font-family: $font-family_body;
         font-size: 1.1rem;
+        margin-left: 20px;
 
+      }
+      span{
+        margin: 15px;
+        font-size: 1.3rem;
       }
     }
 
@@ -91,7 +100,7 @@
       width: 150px;
       font-size: 1.5rem;
       margin-top: 3rem;
-      margin-left: 40%;
+      margin-left: 20%;
       &:hover{
         color: $color-neon;
         border-color: $color-lila;
@@ -126,3 +135,11 @@
   color: $color-lila;
 }
 
+:where(.css-dev-only-do-not-override-w8mnev).ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  border-color: rgb(149, 149, 149);
+  background-color: rgb(69, 68, 68);
+  border-radius: 3px;
+  color: rgb(142, 142, 142);
+  font-family: $font-family_body;
+
+}

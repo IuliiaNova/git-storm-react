@@ -17,6 +17,10 @@
       gap: 5rem;
       align-items: center;
 
+      img{
+        width: 100px;
+      }
+
       .active {
         border-bottom: 2px solid $color-lila;
         animation: 10s shineBorder ease infinite

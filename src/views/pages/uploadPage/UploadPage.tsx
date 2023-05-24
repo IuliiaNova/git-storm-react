@@ -1,11 +1,23 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Radio, Select, Space, RadioChangeEvent, SelectProps } from 'antd';
 import './uploadPage.scss'
+import ContentContext from '../../../context/contentContext/ContentContext';
+import UserContext from '../../../context/UserContext';
+import { message } from 'antd';
+import '../../../sass/_variables.scss'
 
 const UploadPage = () => {
-  const [value, setValue] = useState('meme');
+  const { dbUser } = useContext(UserContext)
+  const { postContent } = useContext(ContentContext)
+  const [messageApi, contextHolder] = message.useMessage();
+  const [formCompleted, setFormCompleted] = useState(false);
 
+  const [name, setName] = useState('');
+  const [url, setUrl] = useState('');
+  const [type, setType] = useState('animals');
+  const [genre, setGenre] = useState('mem');
 
+  //types
   const options: SelectProps<string>['options'] = [
     { value: 'animals', label: 'Animals' },
     { value: 'wow', label: 'Wow' },
@@ -13,13 +25,56 @@ const UploadPage = () => {
     { value: 'reactions', label: 'Reactions' }
   ];
 
-  const handleChange = (value: string | string[]) => {
-    console.log(`Selected: ${value}`);
+  const success = () => {
+    if (formCompleted) {
+      messageApi.open({
+        content: 'You have submit new content successfully',
+        className: 'custom-class',
+        style: {
+          marginTop: '20vh',
+          color: '#FF2CDF',
+          fontWeight: 'bold',
+          fontSize: '1.5rem',
+        },
+      });
+    } else {
+      messageApi.error({
+        content: 'Please fill in all the fields',
+        className: 'custom-class',
+        style: {
+          marginTop: '20vh',
+          color: '#FF0000',
+          fontWeight: 'bold',
+          fontSize: '1.5rem',
+        },
+      });
+    }
+  };
+
+  const handleNameChange = (event: any) => {
+    setName(event.target.value);
+  };
+
+  const handleUrlChange = (event: any) => {
+    setUrl(event.target.value);
+  };
+
+  const handleTypeChange = (value: any) => {
+    setType(value);
   };
 
   const onChange = (e: RadioChangeEvent) => {
-    console.log('radio checked', e.target.value);
-    setValue(e.target.value);
+    setGenre(e.target.value);
+  };
+
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+
+    if (name && url && type && genre) {
+      setFormCompleted(true)
+      postContent(dbUser._id, name, url, type, genre)
+    }
   };
 
 
@@ -28,12 +83,12 @@ const UploadPage = () => {
     <div className='upload-page'>
       <h1 className='upload-page__h1'>Here you can submit new memes and gifs</h1>
 
-      <form className='upload-page__form'>
+      <form className='upload-page__form' onSubmit={handleSubmit}>
 
         <div className='upload-page__form__radio'>
           <span>Choose type:</span>
-          <Radio.Group onChange={onChange} value={value} className='upload-page__form__radio--form'>
-            <Radio value={'meme'}>Meme</Radio>
+          <Radio.Group onChange={onChange} value={genre} className='upload-page__form__radio--form'>
+            <Radio value={'mem'}>Meme</Radio>
             <Radio value={'gif'}>Gif</Radio>
           </Radio.Group>
         </div>
@@ -43,37 +98,47 @@ const UploadPage = () => {
           <input
             type='text'
             id='name'
-            placeholder='Enter name' />
+            value={name}
+            placeholder='Enter name'
+            onChange={handleNameChange} />
         </div>
 
         <div className='upload-page__form__select'>
           <Space direction="vertical" style={{ width: '100%' }} className='space'>
             <label>Choose category: </label>
             <Select
-              mode="multiple"
-              // size={size}
-              placeholder="Please select"
-              defaultValue={['wow']}
-              onChange={handleChange}
-              style={{ width: '120%' }}
+              defaultValue="Wow"
+              onChange={handleTypeChange}
+              style={{ width: 265 }}
               options={options}
+
             />
           </Space>
         </div>
 
         <div className='upload-page__form__input'>
-          <label htmlFor='file'>Choose file:</label>
-          <input
+
+          <label htmlFor='url'>Choose file:</label>
+          {/* <input
             type='file'
-            id='file'
-            placeholder='Enter name' />
-            <label htmlFor='file'>or Put url:</label>
+            id='url'
+            placeholder='Add url'
+          // value={url}
+          // onChange={handleUrlChange} 
+          />
+
+          <span>or put URL: </span> */}
+
           <input
             type='text'
             id='url'
-            placeholder='Add url' />
+            placeholder='Enter URL'
+            value={url}
+            onChange={handleUrlChange} />
+
         </div>
-        <button type='submit'>Submit</button>
+        {contextHolder}
+        <button type='submit' onClick={success}>Submit</button>
       </form>
 
     </div>

@@ -1,8 +1,7 @@
 import ItemComponent from '../Item/ItemComponent'
 import './itemListComponent.scss'
 
-function ItemListComponent({content}: any) {
-  
+function ItemListComponent({content }: any) {
 
   return (
     <div className='item-list'>

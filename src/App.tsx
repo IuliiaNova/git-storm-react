@@ -1,23 +1,25 @@
+import { RouterProvider } from "react-router-dom";
+import router from './router/router';
+import UserProvider from "./context/UserProvider";
 import { Auth0Provider } from '@auth0/auth0-react';
-import { isLocalhost } from './views/utils/isLocalhost';
+import ContentProvider from "./context/contentContext/ContextProvider";
 
 function App() {
 
   return (
     <Auth0Provider
-    domain={process.env.REACT_APP_AUTH0_DOMAIN as string}
-      clientId={
-        isLocalhost
-          ? process.env.REACT_APP_DEVELOPMENT_AUTH0_CLIENT_ID as string
-          : process.env.REACT_APP_PRODUCTION_AUTH0_CLIENT_ID as string
-      }
+      domain='dev-7wmznkm41wx0ichb.us.auth0.com'
+      clientId='h3mSWe3qWxnq6P1rH8v76aQ8J5JG19lv'
       authorizationParams={{
         redirect_uri: window.location.origin + '/',
-        audience: isLocalhost
-          ? process.env.REACT_APP_AUTH0_AUDIENCE_DEVELOPMENT
-          : process.env.REACT_APP_AUTH0_AUDIENCE_PRODUCTION
+        // audience: 'http://localhost:4000'
       }}>
-
+      <UserProvider>
+        <ContentProvider>
+          <RouterProvider router={router}
+            fallbackElement={<></>} />
+        </ContentProvider>
+      </UserProvider>
     </Auth0Provider>
   )
 }
