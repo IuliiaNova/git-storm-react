@@ -1,0 +1,19 @@
+@import '../../../sass/variables';
+
+.item {
+  width: 150px;
+  position: relative;
+
+  &__img {
+    width: 250px;
+  }
+
+  &__p {
+    position: absolute;
+    top: 0;
+    background: $color-blue;
+    color: $color-yellow;
+    padding: 5px;
+    font-weight: bold;
+  }
+}

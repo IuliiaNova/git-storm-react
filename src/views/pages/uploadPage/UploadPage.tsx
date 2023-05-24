@@ -65,8 +65,13 @@ const UploadPage = () => {
           <label htmlFor='file'>Choose file:</label>
           <input
             type='file'
-            id='name'
+            id='file'
             placeholder='Enter name' />
+            <label htmlFor='file'>or Put url:</label>
+          <input
+            type='text'
+            id='url'
+            placeholder='Add url' />
         </div>
         <button type='submit'>Submit</button>
       </form>
