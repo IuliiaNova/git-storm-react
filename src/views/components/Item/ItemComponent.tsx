@@ -10,7 +10,7 @@ function ItemComponent({_id, url, userId}: any) {
 
   return (
     
-    <Link to={`/memes/${_id}`} className='render-album'>
+    <Link to={`/memes/${_id}`} className=''>
     <div className='item' key={_id}>
       <img src={url} alt='name' className='item__img'/>
       {dbUser._id == userId ? (<p className='item__p'>{dbUser.nickname}</p>) : ''}
