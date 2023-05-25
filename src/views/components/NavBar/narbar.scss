@@ -1,5 +1,6 @@
 @import '../../../sass/variables';
 
+
 .navbar-page {
   position: relative;
   top: 60px;
@@ -9,6 +10,7 @@
   padding-bottom: 40px;
   width: 80%;
   margin-bottom: 0;
+  padding: 0;
 
   &__nav {
     &__list {
@@ -17,7 +19,7 @@
       gap: 5rem;
       align-items: center;
 
-      img{
+      img {
         width: 100px;
       }
 
@@ -25,25 +27,25 @@
         border-bottom: 2px solid $color-lila;
         animation: 10s shineBorder ease infinite
       }
-      
+
       @keyframes shineBorder {
         0% {
           border-bottom-color: $color-neon;
-    
+
         }
-    
+
         50% {
           border-bottom-color: $color-lila;
-    
+
         }
-    
+
         100% {
           border-bottom-color: $color-neon;
-    
+
         }
       }
-      
-     
+
+
 
       &__item {
         list-style: none;
@@ -110,7 +112,7 @@
       flex-direction: row;
       align-items: center;
       align-content: center;
-      gap: 20px;
+      gap: 10px;
       width: 80%;
 
       img {
@@ -133,6 +135,8 @@
         background: none;
         border: none;
         width: 120px;
+        margin-top: 0;
+        margin-bottom: 2rem;
 
         &:hover {
           border-bottom: 1px solid $color-neon;

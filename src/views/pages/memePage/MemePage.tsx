@@ -4,6 +4,7 @@ import ContentContext from '../../../context/contentContext/ContentContext';
 import { useContext } from 'react';
 import Spinner from '../../UI/spinner/Spinner';
 import HelmetSEO from '../../utils/HelmetSEO/HelmetSEO';
+import './memepage.scss'
 
 function MemesPage() {
   const { content } = useContext(ContentContext)
@@ -16,7 +17,7 @@ function MemesPage() {
       title={'Memes page'}
       description='Best Memes collection'
     >
-    {isLoading ? <Spinner/> : (<div><ItemListComponent content={filtredContent}/> </div>)}
+    {isLoading ? <Spinner/> : (<div className='memes-page'><ItemListComponent content={filtredContent}/> </div>)}
     </HelmetSEO>
   )
 }

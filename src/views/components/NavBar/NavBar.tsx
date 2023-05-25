@@ -47,11 +47,6 @@ const NavBar = () => {
             <>
               <img src='https://media.giphy.com/media/mWYyIy38pOm6zWuBz9/giphy.gif' className='navbar-page__nav__filter--img' /><p>Hi, {dbUser.nickname}!</p>
             </>) : ''}
-          <button className='navbar-page__nav__filter--btn'>#All</button>
-          <button className='navbar-page__nav__filter--btn'>#Animals</button>
-          <button className='navbar-page__nav__filter--btn'>#WoW</button>
-          <button className='navbar-page__nav__filter--btn'>#Sport</button>
-          <button className='navbar-page__nav__filter--btn'>#Reactions</button>
         </div>
       </nav>
 

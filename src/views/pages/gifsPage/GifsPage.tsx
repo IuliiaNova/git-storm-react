@@ -4,6 +4,7 @@ import ContentContext from '../../../context/contentContext/ContentContext';
 import { useContext } from 'react';
 import Spinner from '../../UI/spinner/Spinner';
 import HelmetSEO from '../../utils/HelmetSEO/HelmetSEO';
+import './gifsPage.scss'
 
 function GifsPage() {
   const { content } = useContext(ContentContext)
@@ -16,7 +17,7 @@ function GifsPage() {
       title={'Gifs page'}
       description='Best Gifs collection'
     >
-    {isLoading ? <Spinner/> : (<div><ItemListComponent content={filtredContent}/> </div>)}
+    {isLoading ? <Spinner/> : (<div className='gifs-page'><ItemListComponent content={filtredContent}/> </div>)}
     </HelmetSEO>
   )
 }
