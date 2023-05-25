@@ -6,16 +6,23 @@ import UserContext from '../../../context/UserContext';
 import { message } from 'antd';
 import '../../../sass/_variables.scss'
 import HelmetSEO from '../../utils/HelmetSEO/HelmetSEO';
+import Spinner from '../../UI/spinner/Spinner';
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 const UploadPage = () => {
   const { dbUser } = useContext(UserContext)
   const { postContent } = useContext(ContentContext)
   const [messageApi, contextHolder] = message.useMessage();
-
+  const {isLoading } = useAuth0()
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
   const [type, setType] = useState('animals');
   const [genre, setGenre] = useState('mem');
+
+  if(isLoading){
+    return <Spinner />
+  }
 
   //types
   const options: SelectProps<string>['options'] = [

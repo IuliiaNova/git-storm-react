@@ -12,3 +12,9 @@ export const registerLoginUserAPI = async (user: any, token: string): Promise<an
 	const data = await response.json()
 	return data
 }
+
+export const getAllUsers = async (): Promise<any> => {
+	const response = await fetch('http://localhost:4000/api/v1/all-users')
+	const data = await response.json()
+	return data
+}
