@@ -10,6 +10,7 @@ import './itemPage.scss'
 import UserContext from '../../../context/UserContext';
 import { IoHeartOutline, IoHeart, IoPaperPlaneOutline, IoTrash } from "react-icons/io5";
 import { message } from 'antd';
+import HelmetSEO from '../../utils/HelmetSEO/HelmetSEO';
 
 function ItemPage() {
   const { id } = useParams<{ id: string }>();
@@ -64,12 +65,17 @@ function ItemPage() {
   };
 
   return (
+    <HelmetSEO
+      title={'Gif details'}
+      description='See better meme or gif'
+    >
     <div className='itemPage'>
       <div className='itemPage__content'>
+        <h2 className='itemPage__content--type'>#{item?.type}</h2>
         <h1>{item?.name}</h1>
         <img src={item?.url} alt={item?.name} />
         <div className='itemPage__content__btn'>
-          <p>by: {dbUser.nickname}</p>
+          {dbUser ? (<p>by: {dbUser.nickname}</p>) : (<p>by: gif-strom-lover</p>)}
           {contextHolder}
           <button className='itemPage__content__btn--like' onClick={()=> setLike(!like)}>{like ? <IoHeart /> : <IoHeartOutline />}</button>
           <button className='itemPage__content__btn--share' onClick={handleShare}><IoPaperPlaneOutline /></button>
@@ -82,6 +88,7 @@ function ItemPage() {
         <ItemListComponent content={filtredContent} />
       </div>
     </div>
+    </HelmetSEO>
   );
 }
 

@@ -10,6 +10,17 @@
   &__content {
     font-family: $font-family_body;
 
+    &--type{
+      color: $color-yellow; 
+      font-size: 2rem;
+      font-family: $font-family_title;
+    }
+
+
+    h1{
+      font-size: 1.8rem;
+    }
+
     img {
       width: 500px;
     }
@@ -25,6 +36,7 @@
       p{
         color: $color-lila;
         font-size: 1.2rem;
+        font-family: $font-family_title;
       }
 
       button{
@@ -52,7 +64,7 @@
 
     &--span {
       margin: 1rem;
-      font-family: $font-family_body;
+      font-family: $font-family_title;
       font-size: 2rem;
       color: $color-green;
     }

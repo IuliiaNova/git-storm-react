@@ -4,6 +4,7 @@ import ItemListComponent from '../../components/ItemsList/ItemListComponent';
 import ContentContext from '../../../context/contentContext/ContentContext';
 import { useContext } from 'react';
 import UserContext from '../../../context/UserContext';
+import HelmetSEO from '../../utils/HelmetSEO/HelmetSEO';
 
 function MyContentPage() {
   const { content } = useContext(ContentContext)
@@ -14,9 +15,12 @@ function MyContentPage() {
 
 
   return (
-    <>
+    <HelmetSEO
+      title={'My collection page'}
+      description='See your collection of memes and gifs'
+    >
     {isLoading ? <Spinner/> : (<div><ItemListComponent content={filtredContent}/> </div>)}
-    </>
+    </HelmetSEO>
   )
 }
 

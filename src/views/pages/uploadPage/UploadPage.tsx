@@ -5,6 +5,7 @@ import ContentContext from '../../../context/contentContext/ContentContext';
 import UserContext from '../../../context/UserContext';
 import { message } from 'antd';
 import '../../../sass/_variables.scss'
+import HelmetSEO from '../../utils/HelmetSEO/HelmetSEO';
 
 const UploadPage = () => {
   const { dbUser } = useContext(UserContext)
@@ -80,6 +81,10 @@ const UploadPage = () => {
 
 
   return (
+    <HelmetSEO
+      title={'Upload page'}
+      description='Upload your own gifs and memes'
+    >
     <div className='upload-page'>
       <h1 className='upload-page__h1'>Here you can submit new memes and gifs</h1>
 
@@ -142,6 +147,7 @@ const UploadPage = () => {
       </form>
 
     </div>
+    </HelmetSEO>
   )
 }
 export default UploadPage
