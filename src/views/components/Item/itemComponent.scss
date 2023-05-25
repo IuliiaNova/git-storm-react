@@ -10,8 +10,9 @@
 
   &__p {
     position: absolute;
-    top: 0;
+    top: -10px;
     background: $color-blue;
+    opacity: 0.7;
     color: $color-yellow;
     padding: 3px;
     font-weight: bold;

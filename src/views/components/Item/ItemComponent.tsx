@@ -24,7 +24,6 @@ function ItemComponent({_id, url, userId}: any) {
       }
     }
     featchUsers()
-    console.log(users)
 
   }, [isLoading, isAuthenticated])
 
@@ -33,7 +32,6 @@ function ItemComponent({_id, url, userId}: any) {
     return user ? user.nickname : '';
   };
   
-
   return (
     
     <Link to={`/memes/${_id}`} className=''>
