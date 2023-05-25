@@ -63,6 +63,10 @@ components: Contains reusable components used in different parts of the applicat
 
 ![Coming soon page](./assets/img/gif3.png)
 
+**Lighthouse**
+
+![Lighthouse](./assets/img/seo.png)
+
 
 ### Contact
 If you have any questions or inquiries related to the project, feel free to contact us via the following email address: **yshihanova@gmail.com**
