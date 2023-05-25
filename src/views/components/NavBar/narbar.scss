@@ -125,7 +125,10 @@
 
       p {
         font-size: large;
-        font-family: $font-family_body;
+        font-family: $font-family_title;
+        background: linear-gradient(to right, $color-neon, $color-green);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
       }
 
       &--btn {
