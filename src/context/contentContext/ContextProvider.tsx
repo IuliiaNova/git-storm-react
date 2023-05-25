@@ -2,8 +2,9 @@ import { useReducer, useMemo, useEffect, useCallback, useContext, useState } fro
 import ContentContext from './ContentContext';
 import initialContentState from './initialContextState';
 import contentReducer from '../../reducer/content/content.reducer';
-import { getAllContentAction, postContentAction } from '../../reducer/content/content.actions';
+import { getAllContentAction, postContentAction, deleteContentAction } from '../../reducer/content/content.actions';
 import { useAuth0 } from '@auth0/auth0-react'
+import UserContext from '../UserContext';
 
 
 export interface ChildrenProps {
@@ -14,6 +15,7 @@ export default function ContentProvider(props: ChildrenProps) {
 
   const [contentState, dispatch] = useReducer(contentReducer, initialContentState)
   const { isLoading, isAuthenticated } = useAuth0()
+  const { dbUser } = useContext(UserContext)
 
   useEffect(() => {
     const getAllContent = async () => {
@@ -23,10 +25,6 @@ export default function ContentProvider(props: ChildrenProps) {
     }
     getAllContent()
   }, [isLoading])
-
-  useEffect(() => {
-    console.log(contentState.content);
-  }, [contentState]);
 
 
   const postContent = useCallback(async (userId: string, name: string, url: string, type: string, genre: string) => {
@@ -39,10 +37,16 @@ export default function ContentProvider(props: ChildrenProps) {
     }
   }, [dispatch, isAuthenticated]);
 
+  const deleteContent = useCallback(async (content: any) => {
+		if (isAuthenticated && content) {
+			await deleteContentAction(dispatch, dbUser._id, content, contentState)
+		}
+	}, [contentState]);
+
 
   const memoProvider = useMemo(() => ({ 
     ...contentState, 
-    postContent: postContent }), [contentState, postContent]);
+    postContent: postContent, deleteContent }), [contentState, postContent, deleteContent]);
 
   return (
     <ContentContext.Provider value={memoProvider}>

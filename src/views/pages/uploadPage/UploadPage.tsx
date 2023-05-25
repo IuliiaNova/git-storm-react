@@ -11,7 +11,6 @@ const UploadPage = () => {
   const { dbUser } = useContext(UserContext)
   const { postContent } = useContext(ContentContext)
   const [messageApi, contextHolder] = message.useMessage();
-  const [formCompleted, setFormCompleted] = useState(false);
 
   const [name, setName] = useState('');
   const [url, setUrl] = useState('');
@@ -27,7 +26,6 @@ const UploadPage = () => {
   ];
 
   const success = () => {
-    if (formCompleted) {
       messageApi.open({
         content: 'You have submit new content successfully',
         className: 'custom-class',
@@ -37,19 +35,7 @@ const UploadPage = () => {
           fontWeight: 'bold',
           fontSize: '1.5rem',
         },
-      });
-    } else {
-      messageApi.error({
-        content: 'Please fill in all the fields',
-        className: 'custom-class',
-        style: {
-          marginTop: '20vh',
-          color: '#FF0000',
-          fontWeight: 'bold',
-          fontSize: '1.5rem',
-        },
-      });
-    }
+      })
   };
 
   const handleNameChange = (event: any) => {
@@ -73,7 +59,6 @@ const UploadPage = () => {
     event.preventDefault();
 
     if (name && url && type && genre) {
-      setFormCompleted(true)
       postContent(dbUser._id, name, url, type, genre)
     }
   };

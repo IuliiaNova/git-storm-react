@@ -14,7 +14,7 @@ function FavPage() {
     <HelmetSEO
       title={'Favorites GIF Strom'}
       description='Your favorite collection'
-    >
+    > 
     {isLoading ? <Spinner/> : (
     <div>
       {isAuthenticated ? (<p className='fav_p'>Dear, {dbUser.name}</p>) : (<p className='fav_p'>Dear, user!</p>) }

@@ -16,7 +16,7 @@ function ItemPage() {
   const { id } = useParams<{ id: string }>();
   const { isLoading } = useAuth0();
   const [item, setItem] = useState<any>({});
-  const { content } = useContext(ContentContext)
+  const { content, deleteContent } = useContext(ContentContext)
   const { dbUser } = useContext(UserContext)
   const [like, setLike] = useState(false)
   const [messageApi, contextHolder] = message.useMessage();
@@ -51,6 +51,20 @@ function ItemPage() {
 
     });
   };
+
+  const deleted = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'The content deleted, reload page',
+      style: {
+        fontWeight: 'bold',
+        fontSize: '16px',
+      },
+
+    });
+  };
+
+
   const handleShare = () => {
     navigator.clipboard.writeText(item.url);
     success()
@@ -58,7 +72,8 @@ function ItemPage() {
 
   const handleDelete = async () => {
     try {
-      await deleteItemByIdApi(id);
+      await deleteContent(item);
+      deleted();
     } catch (error) {
       console.log(error);
     }

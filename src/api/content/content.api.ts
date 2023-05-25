@@ -31,9 +31,15 @@ export const getItemByIdApi = async (id: any): Promise<any> => {
 	return data
 }
 
-export const deleteItemByIdApi = async (id: any): Promise<any> => {
-	const response = await fetch(`http://localhost:4000/api/v1/memes/${id}`, {
+export const deleteItemByIdApi = async (contentId: any, userId: string): Promise<any> => {
+	const response = await fetch(`http://localhost:4000/api/v1/memes/${contentId}`, {
     method: 'DELETE',
+    headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			userId,
+		}),
   });
 	const data = await response.json()
 	return data

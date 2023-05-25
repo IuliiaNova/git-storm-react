@@ -1,4 +1,4 @@
-import { GET_ALL_CONTENT, POST_NEW_CONTENT } from "./content.types";
+import { GET_ALL_CONTENT, POST_NEW_CONTENT, DELETE_CONTENT } from "./content.types";
 
 export default function contentReducer(state: any, action: any) {
 	const { type, payload } = action;
@@ -14,6 +14,12 @@ export default function contentReducer(state: any, action: any) {
 			return {
 				...state,
 				content: [...state.content, payload]
+			}
+
+			case DELETE_CONTENT:
+			return {
+				...state,
+				content: payload
 			}
 
 
